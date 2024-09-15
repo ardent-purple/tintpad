@@ -4,6 +4,7 @@ import {
   hueUp,
   saturationDown,
   saturationUp,
+  setColorQueryString,
 } from './color.js'
 import { addTouchCallback } from './touch.js'
 
@@ -15,8 +16,12 @@ const touchActions = [hueUp, hueDown, saturationUp, saturationDown]
 displayCurrentColor(root)
 
 touchDirections.forEach((type, index) => {
-  addTouchCallback(type, (...args) => {
+  addTouchCallback(type, () => {
     touchActions[index]()
     displayCurrentColor(root)
   })
+})
+
+addTouchCallback('panend', () => {
+  setColorQueryString()
 })
