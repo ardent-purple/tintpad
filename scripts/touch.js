@@ -4,6 +4,7 @@ const touchControls = {
   panup: { callbacks: [] },
   pandown: { callbacks: [] },
   panend: { callbacks: [] },
+  tap: { callbacks: [] },
 }
 
 const execCallbacks = (type, ...args) => {
@@ -24,4 +25,11 @@ Object.keys(touchControls).forEach((type) => {
 
 export const addTouchCallback = (type, callback) => {
   touchControls[type]?.callbacks.push(callback)
+}
+
+export const removeTouchCallback = (type, callback) => {
+  touchControls[type]?.callbacks.splice(
+    touchControls[type]?.callbacks.indexOf(callback),
+    1
+  )
 }

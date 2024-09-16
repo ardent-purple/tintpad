@@ -6,6 +6,7 @@ import {
   saturationUp,
   setColorQueryString,
 } from './color.js'
+import { initInstructionsByTimeout } from './instructions.js'
 import { addTouchCallback } from './touch.js'
 
 const root = document.getElementById('root')
@@ -25,3 +26,5 @@ touchDirections.forEach((type, index) => {
 addTouchCallback('panend', () => {
   setColorQueryString()
 })
+
+initInstructionsByTimeout()

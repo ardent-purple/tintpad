@@ -6,11 +6,99 @@
 
 html,
 body {
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 #root {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+
+.hint-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.hint {
+  height: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.hint-image-wrapper {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.opacity-transition {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hint-image {
+  max-width: 60%;
+  display: block;
+  margin: 0 auto;
+}
+
+.hint-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 4rem;
+  padding: 1rem;
+}
+
+.hint-hide-instruction {
+  text-align: center;
+  margin-top: 0.5rem;
+
+  font-size: 2rem;
+}
+
+.hide {
+  opacity: 0;
+}
+
+@keyframes leftRight {
+  0% {
+    transform: translateX(-10vw);
+  }
+  50% {
+    transform: translateX(10vw);
+  }
+  100% {
+    transform: translateX(-10vw);
+  }
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(-10vw);
+  }
+  50% {
+    transform: translateY(10vw);
+  }
+  100% {
+    transform: translateY(-10vw);
+  }
+}
+
+.hint-image-left-right {
+  animation: leftRight 2.5s ease-in-out infinite;
+}
+
+.hint-image-up-down {
+  animation: upDown 2.5s ease-in-out infinite;
 }

@@ -3,13 +3,45 @@
   <head>
     <meta charset="utf-8" />
     <title>mobi-candle</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="prefetch" href="/img/left-right-min.svg" />
+    <link rel="prefetch" href="/img/up-down-min.svg" />
+
     <link rel="stylesheet" href="style.css" />
+
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     <script src="https://colorjs.io/dist/color.global.min.js"></script>
   </head>
   <body>
     <noscript>Please enable JavaScript to continue.</noscript>
+
     <div id="root"></div>
+
+    <div class="hint-wrapper">
+      <div class="hint">
+        <div class="hint-image-wrapper">
+          <img
+            src="/img/left-right-min.svg"
+            alt=""
+            class="hint-image hide opacity-transition"
+          />
+        </div>
+        <h1 class="hint-text hide opacity-transition" id="hint-text-left-right">
+          Swipe left&nbsp;/ right to&nbsp;change hue
+        </h1>
+        <h3 class="hint-hide-instruction hide opacity-transition">
+          (Tap to continue)
+        </h3>
+      </div>
+    </div>
+
     <script type="module" src="./scripts/index.js" defer></script>
   </body>
 </html>
