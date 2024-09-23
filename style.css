@@ -18,6 +18,8 @@ body {
   overflow: hidden;
 }
 
+/* hint start */
+
 .hint-wrapper {
   position: absolute;
   top: 0;
@@ -95,6 +97,18 @@ body {
   }
 }
 
+@keyframes tap {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10vw);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .hint-image-left-right {
   animation: leftRight 2.5s ease-in-out infinite;
 }
@@ -102,3 +116,81 @@ body {
 .hint-image-up-down {
   animation: upDown 2.5s ease-in-out infinite;
 }
+
+.hint-image-tap {
+  animation: tap 1s ease-in-out infinite;
+}
+
+/* hint end */
+
+/* control start*/
+
+.control-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: end;
+  overflow: hidden;
+}
+
+.control {
+  z-index: 100;
+
+  max-width: 960px;
+  margin: auto auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: end;
+  padding: 1rem;
+}
+
+.control-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+.control-credit {
+  font-size: 1.8rem;
+  text-align: center;
+  flex: 0 0 100%;
+  padding: 1rem;
+}
+
+.control-item {
+  border: 0.5rem solid #000;
+  background-color: #fff;
+  border-radius: 50%;
+
+  padding: 30px;
+  aspect-ratio: 1 / 1;
+  flex: 1 1 5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-icon {
+  width: 100%;
+  height: auto;
+}
+
+.control-transition {
+  transition: transform 0.3s ease-in-out;
+}
+
+.control-hidden {
+  transform: translateY(100vh);
+}
+
+/* control end */

@@ -6,33 +6,48 @@ const LEFT_RIGHT_TEXT_HTML =
 const UP_DOWN_IMAGE = '/img/up-down-min.svg'
 const UP_DOWN_TEXT_HTML =
   'Swipe up&nbsp;/ down to&nbsp;change saturation. You can try it&nbsp;too!'
+const TAP_IMAGE = '/img/tap.svg'
+const TAP_TEXT_HTML = 'Tap screen to&nbsp;display options and credits'
 
 const hintImageElement = document.querySelector('.hint-image')
 const hintTextElement = document.querySelector('.hint-text')
-const hintHideInstructionsElement = document.querySelector(
-  '.hint-hide-instruction'
-)
+const hintContinueElement = document.querySelector('.hint-hide-instruction')
+
+export let isInstructionShowing = false
 
 const hideInstructions = () => {
   hintImageElement.classList.add('hide')
   hintTextElement.classList.add('hide')
+  hintContinueElement.classList.add('hide')
 }
 
 const showInstructions = () => {
   hintImageElement.classList.remove('hide')
   hintTextElement.classList.remove('hide')
+  hintContinueElement.classList.remove('hide')
 }
 
 const setInstructions = (image, text, dir) => {
-  hintImageElement.src = image
+  if (image) {
+    hintImageElement.src = image
+    hintImageElement.classList.remove('hide')
+  } else {
+    hintImageElement.classList.add('hide')
+  }
   hintTextElement.innerHTML = text
 
   if (dir === 'left-right') {
-    hintImageElement.classList.add('hint-image-left-right')
     hintImageElement.classList.remove('hint-image-up-down')
+    hintImageElement.classList.remove('hint-image-tap')
+    hintImageElement.classList.add('hint-image-left-right')
   } else if (dir === 'up-down') {
-    hintImageElement.classList.add('hint-image-up-down')
     hintImageElement.classList.remove('hint-image-left-right')
+    hintImageElement.classList.remove('hint-image-tap')
+    hintImageElement.classList.add('hint-image-up-down')
+  } else if (dir === 'tap') {
+    hintImageElement.classList.remove('hint-image-left-right')
+    hintImageElement.classList.remove('hint-image-up-down')
+    hintImageElement.classList.add('hint-image-tap')
   }
 }
 
@@ -50,24 +65,31 @@ const INSTRUCTIONS_ACTIONS = [
   },
   () => {
     hideInstructions()
-    hintHideInstructionsElement.classList.add('hide')
+    setTimeout(() => {
+      setInstructions(TAP_IMAGE, TAP_TEXT_HTML, 'tap')
+      showInstructions()
+    }, 300)
+  },
+  () => {
+    hideInstructions()
   },
 ]
 
 const instructionsStart = () => {
+  isInstructionShowing = true
   let instructionIndex = 0
 
   INSTRUCTIONS_ACTIONS[instructionIndex]()
   instructionIndex = 1
 
   const listInstruction = async () => {
+    INSTRUCTIONS_ACTIONS[instructionIndex]()
+    instructionIndex = instructionIndex + 1
     if (instructionIndex >= INSTRUCTIONS_ACTIONS.length) {
+      isInstructionShowing = false
       removeTouchCallback('tap', listInstruction)
       return
     }
-
-    INSTRUCTIONS_ACTIONS[instructionIndex]()
-    instructionIndex = instructionIndex + 1
   }
 
   addTouchCallback('tap', listInstruction)
