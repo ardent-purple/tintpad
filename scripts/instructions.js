@@ -75,7 +75,7 @@ const INSTRUCTIONS_ACTIONS = [
   },
 ]
 
-const instructionsStart = () => {
+export const instructionsStart = () => {
   isInstructionShowing = true
   let instructionIndex = 0
 
@@ -86,6 +86,7 @@ const instructionsStart = () => {
     INSTRUCTIONS_ACTIONS[instructionIndex]()
     instructionIndex = instructionIndex + 1
     if (instructionIndex >= INSTRUCTIONS_ACTIONS.length) {
+      localStorage.setItem('dateInstructionLastOpened', Date.now())
       isInstructionShowing = false
       removeTouchCallback('tap', listInstruction)
       return
@@ -97,17 +98,10 @@ const instructionsStart = () => {
 
 const MONTH_IN_MS = 1000 * 60 * 60 * 24 * 30
 
-const checkInstructionTimeout = () => {
+export const checkInstructionTimeout = () => {
   const localStorageInstructionLastOpenedTimestamp = localStorage.getItem(
     'dateInstructionLastOpened'
   )
 
   return Date.now() - localStorageInstructionLastOpenedTimestamp > MONTH_IN_MS
-}
-
-export const initInstructionsByTimeout = () => {
-  if (checkInstructionTimeout()) {
-    instructionsStart()
-    localStorage.setItem('dateInstructionLastOpened', Date.now())
-  }
 }

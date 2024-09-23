@@ -6,19 +6,18 @@ import {
   saturationUp,
   setColorQueryString,
 } from './color.js'
+import { isControlElement, toggleControlShow } from './control.js'
 import {
-  initInstructionsByTimeout,
+  checkInstructionTimeout,
+  instructionsStart,
   isInstructionShowing,
 } from './instructions.js'
 import { addTouchCallback } from './touch.js'
 
 const root = document.getElementById('root')
-const controls = document.querySelector('.control')
 
 const touchDirections = ['panright', 'panleft', 'panup', 'pandown']
 const touchActions = [hueUp, hueDown, saturationUp, saturationDown]
-
-displayCurrentColor(root)
 
 touchDirections.forEach((type, index) => {
   addTouchCallback(type, () => {
@@ -27,17 +26,23 @@ touchDirections.forEach((type, index) => {
   })
 })
 
+// after setting the color save it to query string
 addTouchCallback('panend', () => {
   setColorQueryString()
 })
 
 // show controls, but only if there's no instructions
-addTouchCallback('tap', () => {
-  if (isInstructionShowing) {
+// and we are not clicking on controls
+addTouchCallback('tap', ({ target }) => {
+  if (isInstructionShowing || isControlElement(target)) {
     return
   }
-  controls.classList.toggle('control-hidden')
-  console.log('controls hidden state changed')
+
+  toggleControlShow()
 })
 
-initInstructionsByTimeout()
+displayCurrentColor(root)
+
+if (checkInstructionTimeout()) {
+  instructionsStart()
+}
