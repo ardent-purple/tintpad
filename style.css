@@ -193,4 +193,8 @@ body {
   transform: translateY(100vh);
 }
 
+.control-item-none {
+  display: none;
+}
+
 /* control end */
