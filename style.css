@@ -12,10 +12,15 @@ body {
   font-style: normal;
 }
 
+body {
+  overflow: hidden;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  background-color: var(--current-color);
 }
 
 /* hint start */
@@ -147,6 +152,7 @@ body {
   align-items: center;
   justify-content: end;
   padding: 1rem;
+  transition: transform 0.3s ease-in-out;
 }
 
 .control-row {
@@ -159,8 +165,8 @@ body {
   gap: 2rem;
 }
 
-.control-credit {
-  font-size: 1.8rem;
+.control-text {
+  font-size: 3rem;
   text-align: center;
   flex: 0 0 100%;
   padding: 1rem;
@@ -173,7 +179,7 @@ body {
 
   padding: 30px;
   aspect-ratio: 1 / 1;
-  flex: 1 1 5rem;
+  flex: 1 1 33%;
 
   display: flex;
   align-items: center;
@@ -185,10 +191,6 @@ body {
   height: auto;
 }
 
-.control-transition {
-  transition: transform 0.3s ease-in-out;
-}
-
 .control-hidden {
   transform: translateY(100vh);
 }
@@ -198,3 +200,115 @@ body {
 }
 
 /* control end */
+
+/* animations start */
+
+.animation {
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.animation-hidden {
+  transform: translateY(-150vh);
+}
+
+.animation-item {
+  min-width: 9vh;
+  background-color: var(--current-color);
+}
+
+.animation-item-pick {
+  border-style: dashed;
+}
+
+.animation-item-picked {
+  border-style: solid;
+}
+
+/*
+animations:
+- value from 50 to 100
+- value from 0 to 100
+- value from 0 to 100 fast
+- hue rotate ease
+- hue rotate steps
+- hue rotate random smooth
+*/
+
+@keyframes animation-0 {
+  0% {
+    filter: brightness(0.5);
+  }
+  50% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(0.5);
+  }
+}
+
+.animation-0 {
+  animation: animation-0 3s ease-in-out infinite;
+}
+
+@keyframes animation-1 {
+  0% {
+    filter: brightness(0);
+  }
+  50% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(0);
+  }
+}
+
+.animation-1 {
+  animation: animation-1 3s ease-in-out infinite;
+}
+
+@keyframes animation-2 {
+  0% {
+    filter: brightness(0);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+.animation-2 {
+  animation: animation-2 1s steps(2, jump-none) infinite;
+}
+
+@keyframes animation-3 {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.animation-3 {
+  animation: animation-3 5s linear infinite;
+}
+
+@keyframes animation-4 {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.animation-4 {
+  animation: animation-4 3.5s steps(7, jump-none) infinite;
+}
+
+.animation-5 {
+  filter: hue-rotate(var(--random-hue-factor));
+  transition: filter 0.5s linear;
+}
+
+/* animations end */

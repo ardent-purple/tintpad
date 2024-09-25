@@ -7,6 +7,10 @@ export const getQueryStringParam = (param) => {
 
 export const setQueryStringParam = (param, value) => {
   const currentParams = new URLSearchParams(window.location.search)
-  currentParams.set(param, value)
+  if (value === null || value === undefined) {
+    currentParams.delete(param)
+  } else {
+    currentParams.set(param, value)
+  }
   window.history.replaceState({}, '', `?${currentParams.toString()}`)
 }

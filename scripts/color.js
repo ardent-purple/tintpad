@@ -9,8 +9,11 @@ const currentColor = new Color(
 )
 currentColor.hsv.v = 100 // max brightness by default
 
-export const displayCurrentColor = (element) => {
-  element.style.backgroundColor = currentColor.toString({ format: 'hex' })
+export const displayCurrentColor = () => {
+  document.body.style.setProperty(
+    '--current-color',
+    currentColor.toString({ format: 'hex' })
+  )
 }
 
 export const setColorQueryString = () =>
@@ -34,3 +37,13 @@ export const hueUp = (amount = 1) => {
 export const hueDown = (amount = 1) => {
   currentColor.hsv.h -= amount
 }
+
+// set random factor
+setInterval(() => {
+  document.body.style.setProperty(
+    '--random-hue-factor',
+    `${Math.ceil(Math.random() * 360)}deg`
+  )
+}, 1000)
+
+displayCurrentColor()

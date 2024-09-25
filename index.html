@@ -43,9 +43,9 @@
     </div>
 
     <div class="control-wrapper">
-      <div class="control control-transition control-hidden">
+      <div class="control control-transition control-hidden" id="main-control">
         <div class="control-row">
-          <div class="control-item">
+          <div class="control-item" id="control-animation">
             <img src="/img/animation.svg" alt="" class="control-icon" />
           </div>
           <div class="control-item" id="control-help">
@@ -56,7 +56,7 @@
           </div>
         </div>
         <div class="control-row">
-          <h3 class="control-credit">Made with 💜 by ardent-purple</h3>
+          <h3 class="control-text">Made with 💜 by ardent-purple</h3>
         </div>
         <div class="control-row">
           <a
@@ -91,6 +91,51 @@
           >
             <img src="/img/kofi.svg" alt="" class="control-icon" />
           </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-wrapper">
+      <div class="control animation animation-hidden" id="animation-control">
+        <h3 class="control-text">Select an animation</h3>
+        <div class="control-row animation-row">
+          <div
+            class="control-item animation-item animation-item-pick animation-0"
+            data-animation-index="0"
+          ></div>
+          <div
+            class="control-item animation-item animation-item-pick animation-1"
+            data-animation-index="1"
+          ></div>
+        </div>
+        <div class="control-row animation-row">
+          <div
+            class="control-item animation-item animation-item-pick animation-2"
+            data-animation-index="2"
+          ></div>
+          <div
+            class="control-item animation-item animation-item-pick animation-3"
+            data-animation-index="3"
+          ></div>
+        </div>
+        <div class="control-row animation-row">
+          <div
+            class="control-item animation-item animation-item-pick animation-4"
+            data-animation-index="4"
+          ></div>
+          <div
+            class="control-item animation-item animation-item-pick animation-5"
+            data-animation-index="5"
+          ></div>
+        </div>
+        <div class="control-row animation-row">
+          <div class="control-item animation-item" id="animation-back">
+            <img src="/img/back.svg" alt="" class="control-icon" />
+          </div>
+          <div
+            class="control-item animation-item animation-item-pick"
+            id="animation-none"
+          ></div>
         </div>
       </div>
     </div>

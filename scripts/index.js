@@ -6,7 +6,14 @@ import {
   saturationUp,
   setColorQueryString,
 } from './color.js'
-import { isControlElement, toggleControlShow } from './control.js'
+import {
+  hideAnimation,
+  hideControl,
+  isAnimationControlShown,
+  isControlElement,
+  isControlShown,
+  showControl,
+} from './control.js'
 import {
   checkInstructionTimeout,
   instructionsStart,
@@ -38,10 +45,14 @@ addTouchCallback('tap', ({ target }) => {
     return
   }
 
-  toggleControlShow()
+  if (isAnimationControlShown) {
+    hideAnimation()
+  } else if (isControlShown) {
+    hideControl()
+  } else {
+    showControl()
+  }
 })
-
-displayCurrentColor(root)
 
 if (checkInstructionTimeout()) {
   instructionsStart()
