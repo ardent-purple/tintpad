@@ -13,6 +13,7 @@
 
     <link rel="prefetch" href="/img/left-right-min.svg" />
     <link rel="prefetch" href="/img/up-down-min.svg" />
+    <link rel="prefetch" href="/img/tap.svg" />
 
     <link rel="stylesheet" href="style.css" />
 
@@ -33,12 +34,17 @@
             class="hint-image hide opacity-transition"
           />
         </div>
-        <h1 class="hint-text hide opacity-transition" id="hint-text-left-right">
-          Swipe left&nbsp;/ right to&nbsp;change hue
-        </h1>
-        <h3 class="hint-hide-instruction hide opacity-transition">
-          (Tap to continue)
-        </h3>
+        <div class="hint-text-wrapper">
+          <h1
+            class="hint-text hide opacity-transition"
+            id="hint-text-left-right"
+          >
+            Swipe left&nbsp;/ right to&nbsp;change hue
+          </h1>
+          <h3 class="hint-hide-instruction hide opacity-transition">
+            (Tap to continue)
+          </h3>
+        </div>
       </div>
     </div>
 
@@ -54,10 +60,11 @@
           <div class="control-item" id="control-share">
             <img src="/img/share.svg" alt="" class="control-icon" />
           </div>
+          <div class="control-item" id="control-close">
+            <img src="/img/close.svg" alt="" class="control-icon" />
+          </div>
         </div>
-        <div class="control-row">
-          <h3 class="control-text">Made with 💜 by ardent-purple</h3>
-        </div>
+        <h3 class="control-text">Made with 💜 by ardent-purple</h3>
         <div class="control-row">
           <a
             href="https://x.com/ardentpurpledev"
@@ -96,46 +103,43 @@
     </div>
 
     <div class="control-wrapper">
-      <div class="control animation animation-hidden" id="animation-control">
+      <div class="animation animation-hidden" id="animation-control">
         <h3 class="control-text">Select an animation</h3>
-        <div class="control-row animation-row">
-          <div
-            class="control-item animation-item animation-item-pick animation-0"
-            data-animation-index="0"
-          ></div>
-          <div
-            class="control-item animation-item animation-item-pick animation-1"
-            data-animation-index="1"
-          ></div>
-        </div>
-        <div class="control-row animation-row">
-          <div
-            class="control-item animation-item animation-item-pick animation-2"
-            data-animation-index="2"
-          ></div>
-          <div
-            class="control-item animation-item animation-item-pick animation-3"
-            data-animation-index="3"
-          ></div>
-        </div>
-        <div class="control-row animation-row">
-          <div
-            class="control-item animation-item animation-item-pick animation-4"
-            data-animation-index="4"
-          ></div>
-          <div
-            class="control-item animation-item animation-item-pick animation-5"
-            data-animation-index="5"
-          ></div>
-        </div>
-        <div class="control-row animation-row">
-          <div class="control-item animation-item" id="animation-back">
-            <img src="/img/back.svg" alt="" class="control-icon" />
+        <div class="animation-content">
+          <div class="animation-grid">
+            <div
+              class="animation-item animation-item-pick animation-0"
+              data-animation-index="0"
+            ></div>
+            <div
+              class="animation-item animation-item-pick animation-1"
+              data-animation-index="1"
+            ></div>
+            <div
+              class="animation-item animation-item-pick animation-2"
+              data-animation-index="2"
+            ></div>
+            <div
+              class="animation-item animation-item-pick animation-3"
+              data-animation-index="3"
+            ></div>
+            <div
+              class="animation-item animation-item-pick animation-4"
+              data-animation-index="4"
+            ></div>
+            <div
+              class="animation-item animation-item-pick animation-5"
+              data-animation-index="5"
+            ></div>
           </div>
-          <div
-            class="control-item animation-item animation-item-pick"
-            id="animation-none"
-          ></div>
+          <div class="animation-controls">
+            <div class="animation-item animation-item-pick" id="animation-none">
+              Still color
+            </div>
+            <div class="animation-item" id="animation-back">
+              <img src="/img/back.svg" alt="" class="control-icon" />
+            </div>
+          </div>
         </div>
       </div>
     </div>

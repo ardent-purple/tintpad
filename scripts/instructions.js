@@ -1,12 +1,12 @@
 import { addTouchCallback, removeTouchCallback } from './touch.js'
+import LEFT_RIGHT_IMAGE from '/img/left-right-min.svg'
+import TAP_IMAGE from '/img/tap.svg'
+import UP_DOWN_IMAGE from '/img/up-down-min.svg'
 
-const LEFT_RIGHT_IMAGE = '/img/left-right-min.svg'
 const LEFT_RIGHT_TEXT_HTML =
   'Swipe left&nbsp;/ right to&nbsp;change hue. Try&nbsp;it!'
-const UP_DOWN_IMAGE = '/img/up-down-min.svg'
 const UP_DOWN_TEXT_HTML =
   'Swipe up&nbsp;/ down to&nbsp;change saturation. You can try it&nbsp;too!'
-const TAP_IMAGE = '/img/tap.svg'
 const TAP_TEXT_HTML = 'Tap screen to&nbsp;display options and credits'
 
 const hintImageElement = document.querySelector('.hint-image')

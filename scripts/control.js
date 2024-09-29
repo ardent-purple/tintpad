@@ -9,6 +9,7 @@ const animations = document.getElementById('animation-control')
 const controlAnimationShow = document.getElementById('control-animation')
 const controlHelp = document.getElementById('control-help')
 const controlShare = document.getElementById('control-share')
+const controlClose = document.getElementById('control-close')
 
 const animationBack = document.getElementById('animation-back')
 const animationPickItems = [
@@ -20,7 +21,10 @@ export let isAnimationControlShown = false
 export let isControlShown = false
 
 export const isControlElement = (element) => {
-  return Boolean(element.closest('.control'))
+  return (
+    Boolean(element.closest('.control')) ||
+    Boolean(element.closest('.animation'))
+  )
 }
 
 export const showControl = () => {
@@ -120,4 +124,11 @@ if (!navigator.share) {
 controlShare.addEventListener('click', () => {
   const text = `Turn on the color! It's one click away: ${window.location.href}`
   navigator.share({ url: window.location.href, text })
+})
+
+// close options
+
+controlClose.addEventListener('click', () => {
+  hideAnimation()
+  hideControl()
 })
