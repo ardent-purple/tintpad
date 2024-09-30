@@ -64,7 +64,7 @@ export default defineConfig({
   ],
   root: './', // Set the root to the current directory
   build: {
-    outDir: './dist', // Output directory for all files
+    outDir: './docs', // Output directory for all files
     rollupOptions: {
       input: './index.html', // Entry point for your project
       output: {
