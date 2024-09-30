@@ -1,8 +1,8 @@
 export const getQueryStringParam = (param) => {
   const urlParams = new URLSearchParams(window.location.search)
 
-  const color = urlParams.get(param)
-  return color
+  const result = urlParams.get(param)
+  return result
 }
 
 export const setQueryStringParam = (param, value) => {

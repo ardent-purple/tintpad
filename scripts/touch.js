@@ -1,3 +1,5 @@
+import Hammer from 'hammerjs'
+
 const touchControls = {
   panright: { callbacks: [] },
   panleft: { callbacks: [] },

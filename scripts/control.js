@@ -9,6 +9,7 @@ const animations = document.getElementById('animation-control')
 const controlAnimationShow = document.getElementById('control-animation')
 const controlHelp = document.getElementById('control-help')
 const controlShare = document.getElementById('control-share')
+const controlInstall = document.getElementById('control-install')
 const controlClose = document.getElementById('control-close')
 
 const animationBack = document.getElementById('animation-back')
@@ -124,6 +125,21 @@ if (!navigator.share) {
 controlShare.addEventListener('click', () => {
   const text = `Turn on the color! It's one click away: ${window.location.href}`
   navigator.share({ url: window.location.href, text })
+})
+
+// install pwa
+let deferredPrompt
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  deferredPrompt = e
+  console.log('beforeinstallprompt fired')
+
+  controlInstall.classList.remove('control-item-none') // Make the button visible
+
+  controlInstall.addEventListener('click', () => {
+    // Show the install prompt
+    deferredPrompt.prompt()
+  })
 })
 
 // close options

@@ -1,3 +1,4 @@
+import Color from 'colorjs.io'
 import { getQueryStringParam, setQueryStringParam } from './url.js'
 
 const DEFAULT_COLOR = '#ffac54'
