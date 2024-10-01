@@ -34,7 +34,8 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,png,svg}'],
+        globIgnores: ['**/manifest.webmanifest', '**/sw.js'],
+        globPatterns: ['**/*.{js,css,html,png,svg}'],
       },
       devOptions: {
         enabled: true,
