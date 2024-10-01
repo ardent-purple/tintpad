@@ -29,7 +29,6 @@ export default defineConfig({
             src: '/any-size.svg',
             sizes: 'any',
             type: 'image/svg+xml',
-            purpose: 'maskable',
           },
         ],
       },
