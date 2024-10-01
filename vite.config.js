@@ -11,7 +11,8 @@ export default defineConfig({
         short_name: 'tintpad',
         description:
           'tintpad is a free web app for displaying or animating any color on your screen. Use it to create a primitive lightpad. The app can be used to set a mood, create an environment, create a simple light source for reading or just good mood',
-        start_url: '.',
+        start_url: '/',
+        scope: '/',
         display: 'standalone',
         theme_color: '#ffffff',
         background_color: '#ffffff',
@@ -40,11 +41,6 @@ export default defineConfig({
             src: '/favicon-16x16.png',
             sizes: '16x16',
             type: 'image/png',
-          },
-          {
-            src: '/favicon.ico',
-            sizes: 'any',
-            type: 'image/x-icon',
           },
           {
             src: '/safari-pinned-tab.svg',

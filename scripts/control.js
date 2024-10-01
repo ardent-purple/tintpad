@@ -123,7 +123,7 @@ if (!navigator.share) {
 }
 
 controlShare.addEventListener('click', () => {
-  const text = `Turn on the color! It's one click away: ${window.location.href}`
+  const text = `Turn on the color! It's one click away: `
   navigator.share({ url: window.location.href, text })
 })
 
@@ -131,8 +131,8 @@ controlShare.addEventListener('click', () => {
 let deferredPrompt
 
 window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault()
   deferredPrompt = e
-  console.log('beforeinstallprompt fired')
 
   controlInstall.classList.remove('control-item-none') // Make the button visible
 
@@ -140,6 +140,10 @@ window.addEventListener('beforeinstallprompt', (e) => {
     // Show the install prompt
     deferredPrompt.prompt()
   })
+})
+
+window.addEventListener('appinstalled', () => {
+  controlInstall.classList.add('control-item-none')
 })
 
 // close options
