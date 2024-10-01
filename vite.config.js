@@ -14,8 +14,6 @@ export default defineConfig({
         start_url: '/',
         scope: '/',
         display: 'standalone',
-        theme_color: '#ffffff',
-        background_color: '#ffffff',
         icons: [
           {
             src: '/android-chrome-192x192.png',
@@ -36,7 +34,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png,svg}'],
+        globPatterns: ['**/*.{js,css,png,svg}'],
       },
       devOptions: {
         enabled: true,
