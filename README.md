@@ -1,6 +1,8 @@
 # tintpad
 
-tintpad is a free web app for displaying or animating any color on your screen. Use it to create a primitive lightpad. The app can be used to set a mood, create an environment, create a simple light source for reading or just good mood.
+tintpad is a tiny installable web app that fills your screen with a color or a simple animation. Use it as a pocket lightpad, a soft ambient light, or just because the room needs more purple.
+
+Live app: https://tintpad.pages.dev
 
 ## features
 
@@ -11,7 +13,11 @@ tintpad is a free web app for displaying or animating any color on your screen. 
 
 ## Commands
 
+```bash
+npm ci
+npm run dev
+npm run build
+npm run check
 ```
-npm run build // build project for production
-npm run dev // start development server (local network accessible, with service worker)
-```
+
+Cloudflare Pages builds `main` with `npm run build` and publishes `dist/`.
